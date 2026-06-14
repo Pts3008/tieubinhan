@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Review truyện kiếm hiệp, tiên hiệp hay nhất" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Tiểu Bình An</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-gray-50 text-gray-800 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-4 h-12 flex items-center gap-6">
+        <a href="/" class="font-semibold text-base flex items-center gap-1">
+          ⚔️ Tiểu <span class="text-indigo-500">Bình An</span>
+        </a>
+        <div class="flex gap-4 text-sm text-gray-500">
+          <a href="/review" class="hover:text-gray-800">Review</a>
+          <a href="/the-loai/tien-hiep" class="hover:text-gray-800">Tiên hiệp</a>
+          <a href="/the-loai/kiem-hiep" class="hover:text-gray-800">Kiếm hiệp</a>
+          <a href="/top-list" class="hover:text-gray-800">Top list</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Nội dung trang -->
+    <main class="max-w-5xl mx-auto px-4 py-6">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 mt-12 py-6 text-center text-sm text-gray-400">
+      © 2025 tieubinhan.com · Review truyện kiếm hiệp, tiên hiệp
+    </footer>
+
+  </body>
+</html>
